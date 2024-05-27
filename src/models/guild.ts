@@ -15,15 +15,8 @@ interface IGuild extends Document {
 
 
 const guildSchema: Schema = new Schema({
-    id: { type: String, default: ',', unique: true },
+    id: { type: String, null: false, unique: true },
     prefix: { type: String, default: ',' },
-    trustedUsers: { type: Array, default: [] },
-    blackListedUsers: { type: Array, default: [] }, 
-    punishments: { type: Object, default: {}},
-    config: { type: Object, default: {
-        'vanityProtector': false,
-        'antiRaid': false
-    }},
 });
 
 const GldModel = mongoose.model<IGuild>('guilds', guildSchema);
